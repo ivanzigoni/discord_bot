@@ -23,8 +23,6 @@ client.commands = new Collection();
                                   REGISTER SLASH COMMANDS FROM COMMANDS FOLDER
 */
 (async () => {
-  const commandsPath = path.join(__dirname, 'commands'); // commands absolute path
-
   const commandFiles = getFiles('./commands')
 
   for (const file of commandFiles) {
