@@ -1,8 +1,12 @@
-import { BaseInteraction, ButtonInteraction, ChatInputCommandInteraction, Events } from "discord.js";
-import { Command } from "../interfaces/command";
+import {
+  BaseInteraction,
+  ButtonInteraction,
+  ChatInputCommandInteraction,
+  Events,
+} from 'discord.js';
+import { Command } from '../interfaces/command';
 
 async function chatInputCommand(interaction: ChatInputCommandInteraction) {
-
   const command: Command = interaction.client.commands.get(interaction.commandName);
 
   if (!command) {
@@ -19,7 +23,6 @@ async function chatInputCommand(interaction: ChatInputCommandInteraction) {
 }
 
 async function buttonCommand(interaction: ButtonInteraction) {
-
   const command: Command = interaction.client.commands.get(interaction.customId);
 
   if (!command) {
@@ -33,16 +36,15 @@ async function buttonCommand(interaction: ButtonInteraction) {
     console.error(`Error executing ${interaction.customId}`);
     console.error(error);
   }
-
 }
 
 export const event = {
-	name: Events.InteractionCreate,
-	async execute(interaction: BaseInteraction) {
-		if (interaction.isChatInputCommand()) {
+  name: Events.InteractionCreate,
+  async execute(interaction: BaseInteraction) {
+    if (interaction.isChatInputCommand()) {
       await chatInputCommand(interaction);
     } else if (interaction.isButton()) {
       await buttonCommand(interaction);
     } else return;
-	},
+  },
 };
