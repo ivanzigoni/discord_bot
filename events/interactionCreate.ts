@@ -7,7 +7,9 @@ import {
 import { Command } from '../interfaces/command';
 
 async function chatInputCommand(interaction: ChatInputCommandInteraction) {
-  const command: Command = interaction.client.commands.get(interaction.commandName);
+  const command: Command = interaction.client.commands.get(
+    interaction.commandName
+  );
 
   if (!command) {
     console.error(`No command matching ${interaction.commandName} was found.`);
@@ -23,7 +25,9 @@ async function chatInputCommand(interaction: ChatInputCommandInteraction) {
 }
 
 async function buttonCommand(interaction: ButtonInteraction) {
-  const command: Command = interaction.client.commands.get(interaction.customId);
+  const command: Command = interaction.client.commands.get(
+    interaction.customId
+  );
 
   if (!command) {
     console.error(`No command matching ${interaction.customId} was found.`);

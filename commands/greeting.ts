@@ -7,13 +7,19 @@ const data = new SlashCommandBuilder()
     return option
       .setName('falatu')
       .setDescription('greeting numero um')
-      .setChoices({ name: 'consagrado', value: 'consagrado' }, { name: 'patrão', value: 'patrão' });
+      .setChoices(
+        { name: 'consagrado', value: 'consagrado' },
+        { name: 'patrão', value: 'patrão' }
+      );
   })
   .addStringOption((option) => {
     return option
       .setName('coé')
       .setDescription('greeting numero dois')
-      .setChoices({ name: 'consagrado', value: 'consagrado' }, { name: 'patrão', value: 'patrão' });
+      .setChoices(
+        { name: 'consagrado', value: 'consagrado' },
+        { name: 'patrão', value: 'patrão' }
+      );
   });
 // .addStringOption(option => {
 //   return option.setName('bão').setDescription("greeting numero tres")
