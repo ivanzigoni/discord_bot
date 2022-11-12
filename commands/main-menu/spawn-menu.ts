@@ -18,26 +18,26 @@ async function execute(interaction: ChatInputCommandInteraction) {
   const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
     new ButtonBuilder()
       .setCustomId('button1')
-      .setLabel('Sim')
+      .setLabel('Backend')
       .setStyle(ButtonStyle.Primary),
     new ButtonBuilder()
       .setCustomId('button2')
-      .setLabel('Não')
+      .setLabel('Frontend')
       .setStyle(ButtonStyle.Primary),
     new ButtonBuilder()
       .setCustomId('button3')
-      .setLabel('Talvez')
+      .setLabel('QA')
       .setStyle(ButtonStyle.Primary)
   );
 
-  await interaction.reply({
-    content: 'Você gosta de abóbora?',
+  const message = await interaction.reply({
+    content: 'Qual é a sua stack?',
     ephemeral: true,
     components: [row],
   });
 
-  interaction.channel
-    ?.createMessageComponentCollector({
+  message
+    .createMessageComponentCollector({
       componentType: ComponentType.Button,
     })
     .on('collect', async (...args) => {

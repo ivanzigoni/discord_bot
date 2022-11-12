@@ -47,8 +47,11 @@ export const event = {
   async execute(interaction: BaseInteraction) {
     if (interaction.isChatInputCommand()) {
       await chatInputCommand(interaction);
+      return;
     } else if (interaction.isButton()) {
-      await buttonCommand(interaction);
+      return;
+      // handled by collector
+      // await buttonCommand(interaction);
     } else return;
   },
 };
